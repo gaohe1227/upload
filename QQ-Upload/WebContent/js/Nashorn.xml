@@ -1,0 +1,70 @@
+<Library paramPolicyMandatory="true">
+  <class name="Global">
+    <property name="__FILE__" type="string"/>
+    <property name="__LINE__" type="int"/>
+    <property name="__DIR__" type="string"/>
+    <property name="Packages"/>
+    <method name="load">
+      <param name="script" type="string|Object"/>
+    </method>
+    <method name="loadWithNewObject">
+      <param name="script" type="string|Object"/>
+    </method>
+    <method name="exit">
+      <param name="code" type="int" optional="true"/>
+    </method>
+    <method name="quit">
+      <param name="code" type="int" optional="true"/>
+    </method>
+    <method name="JavaImporter">
+      <param name="className" type="string" rest="true"/>
+    </method>
+  </class>
+  <class name="Java">
+    <static>
+      <method name="type">
+        <param name="s" type="string"/>
+      </method>
+      <method name="extend">
+        <param name="parentType"/>
+      </method>
+      <method name="from">
+        <param name="javaArray"/>
+      </method>
+      <method name="to">
+        <param name="jsArray"/>
+        <param name="javaType"/>
+      </method>
+      <method name="super">
+        <param name="type"/>
+      </method>
+    </static>
+  </class>
+  <class name="Object">
+    <static>
+      <method name="setPrototypeOf">
+        <param name="obj" type="Object"/>
+        <param name="prototype" type="Object"/>
+      </method>
+      <method name="bindProperties">
+        <param name="to" type="Object"/>
+        <param name="from" type="Object"/>
+      </method>
+    </static>
+  </class>
+  <class name="Error">
+    <static>
+      <method name="dumpStack"/>
+      <property name="lineNumber" type="int"/>
+      <property name="columnNumber" type="int"/>
+      <property name="fileName" type="string"/>
+      <property name="stack" type="string"/>
+    </static>
+    <method name="printStackTrace"/>
+    <method name="getStackTrace" returnType="java.lang.StackTraceElement[]"/>
+  </class>
+  <class name="String">
+    <method name="trimLeft"/>
+    <method name="trimRight"/>
+  </class>
+</Library>

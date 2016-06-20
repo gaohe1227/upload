@@ -1,0 +1,117 @@
+<Library>
+  <class name="Object" createStaticVar="false">
+    <static>
+      <method name="isExtensible" returnType="Boolean">
+        <param name="object" optional="false" type="Object"/>
+      </method>
+      <method name="preventExtensions" returnType="void">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="getOwnPropertyDescriptor" returnType="Object">
+        <param name="obj" optional="false" type="Object"/>
+        <param name="prop" optional="false" type="String"/>
+      </method>
+      <method name="defineProperty" returnType="void">
+        <param name="obj" optional="false" type="Object"/>
+        <param name="prop" optional="false" type="String"/>
+        <param name="desc" optional="false" type="Object"/>
+      </method>
+      <method name="defineProperties" returnType="void">
+        <param name="obj" optional="false" type="Object"/>
+        <param name="props" optional="false" type="Object"/>
+      </method>
+      <method name="keys" returnType="Array">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="getOwnPropertyNames" returnType="Array">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="create" returnType="void">
+        <param name="proto" optional="false" type="Object"/>
+        <param name="props" type="Object"/>
+      </method>
+      <method name="getPrototypeOf" returnType="Object">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="seal" returnType="void">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="isSealed" returnType="Boolean">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="freeze" returnType="void">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+      <method name="isFrozen" returnType="Boolean">
+        <param name="obj" optional="false" type="Object"/>
+      </method>
+    </static>
+  </class>
+  <class name="Array" createStaticVar="false" template="T">
+    <static>
+      <method name="isArray" returnType="boolean">
+        <param name="obj" optional="false" type="*"/>
+      </method>
+    </static>
+    <method name="reduce" returnType="*">
+      <param name="callback" optional="false" type="function(*, *=, number=, Array.&lt;T&gt;=)"/>
+      <param name="initialValue" type="*"/>
+    </method>
+    <method name="reduceRight" returnType="*">
+      <param name="callback" optional="false" type="function(*, *=, number=, Array.&lt;T&gt;=)"/>
+      <param name="initialValue" type="*"/>
+    </method>
+    <method name="indexOf" returnType="int">
+      <param name="searchElement" optional="false" type="T"/>
+      <param name="fromIndex" type="int"/>
+    </method>
+    <method name="lastIndexOf" returnType="int">
+      <param name="searchElement" optional="false" type="T"/>
+      <param name="fromIndex" type="int"/>
+    </method>
+    <method name="every" returnType="boolean">
+      <param name="callback" optional="false" type="function(T=, number=, Array.&lt;T&gt;=)"/>
+      <param name="thisArg" type="*"/>
+    </method>
+    <method name="filter" returnType="Array.&lt;T&gt;">
+      <param name="callback" optional="false" type="function(T=, number=, Array.&lt;T&gt;=)"/>
+      <param name="thisArg" type="*"/>
+    </method>
+    <method name="forEach" returnType="void">
+      <param name="callback" optional="false" type="function(T=, number=, Array.&lt;T&gt;=)"/>
+      <param name="thisArg" type="*"/>
+    </method>
+    <method name="map" returnType="Array">
+      <param name="callback" optional="false" type="function(T=, number=, Array.&lt;T&gt;=)"/>
+      <param name="thisArg" type="*"/>
+    </method>
+    <method name="some" returnType="boolean">
+      <param name="callback" optional="false" type="function(T=, number=, Array.&lt;T&gt;=)"/>
+      <param name="thisArg" type="*"/>
+    </method>
+  </class>
+  <class name="String" createStaticVar="false">
+    <method name="trim" returnType="String"/>
+    <method name="toJSON" returnType="String"/>
+  </class>
+  <class name="Function" createStaticVar="false">
+    <method name="bind" returnType="function(this:T)" template="T">
+      <param name="thisArg" type="T" optional="false"/>
+      <param name="arg" rest="true" type="*"/>
+    </method>
+  </class>
+  <class name="JSON">
+    <static>
+      <method name="stringify">
+        <param name="value" optional="false" type="*"/>
+        <param name="replacer" type="Function"/>
+        <param name="space" type="Number|String"/>
+      </method>
+      <method name="parse">
+        <param name="jsonString" optional="false" type="String"/>
+        <param name="reviver" optional="true" type="Function"/>
+      </method>
+    </static>
+    <property name="constructor"/>
+  </class>
+</Library>

@@ -1,0 +1,149 @@
+<Library>
+  <class name="Global">
+    <method name="isXMLName" returnType="boolean">
+      <param name="str" type="String"/>
+    </method>
+  </class>
+
+  <class name="XMLList" extends="XML">
+    <method name="__constructor__">
+      <param name="value" type="Object"/>
+    </method>
+    <method name="attribute" returnType="XMLList">
+      <param name="attributeName" type="*"/>
+    </method>
+    <method name="attributes" returnType="XMLList"/>
+    <method name="child" returnType="XMLList">
+      <param name="propertyName" type="*"/>
+    </method>
+    <method name="children" returnType="XMLList"/>
+    <method name="comments" returnType="XMLList"/>
+    <method name="contains" returnType="boolean">
+      <param name="value" type="XML"/>
+    </method>
+    <method name="copy" returnType="XMLList"/>
+    <method name="descendants" returnType="XMLList">
+      <param name="name" type="*"/>
+    </method>
+    <method name="elements" returnType="XMLList">
+      <param name="name" type="*"/>
+    </method>
+    <method name="hasComplexContent" returnType="boolean"/>
+    <method name="hasSimpleContent" returnType="boolean"/>
+    <method name="normalize" returnType="XMLList"/>
+    <method name="parent" returnType="XML"/>
+    <method name="processingInstructions" returnType="XMLList">
+      <param name="name" type="String"/>
+    </method>
+    <method name="text" returnType="XMLList"/>
+    <method name="valueOf" returnType="XMLList"/>
+  </class>
+
+  <class name="XML">
+    <property name="ignoreComments" type="boolean"/>
+    <property name="ignoreProcessingInstructions" type="boolean"/>
+    <property name="ignoreWhitespace" type="boolean"/>
+    <property name="prettyPrinting" type="boolean"/>
+    <method name="__constructor__">
+      <param name="value" type="*"/>
+    </method>
+    <method name="addNamespace" returnType="XML">
+      <param name="ns" type="*"/>
+    </method>
+    <method name="appendChild" returnType="XML">
+      <param name="child" type="*"/>
+    </method>
+    <method name="attribute" returnType="XMLList">
+      <param name="attributeName" type="*"/>
+    </method>
+    <method name="attributes" returnType="XMLList"/>
+    <method name="child" returnType="XMLList">
+      <param name="propertyName" type="*"/>
+    </method>
+    <method name="childIndex" returnType="Number"/>
+    <method name="children" returnType="XMLList"/>
+    <method name="comments" returnType="XMLList"/>
+    <method name="contains" returnType="boolean">
+      <param name="value" type="XML"/>
+    </method>
+    <method name="copy" returnType="XML"/>
+    <method name="defaultSettings" returnType="Object"/>
+    <method name="descendants" returnType="XMLList">
+      <param name="name" type="*"/>
+    </method>
+    <method name="elements" returnType="XMLList">
+      <param name="name" type="*"/>
+    </method>
+    <method name="hasComplexContent" returnType="boolean"/>
+    <method name="hasSimpleContent" returnType="boolean"/>
+    <method name="inScopeNamespaces" returnType="Array"/>
+    <method name="insertChildAfter" returnType="XMLList|undefined">
+      <param name="child1" type="Object"/>
+      <param name="child2" type="Object"/>
+    </method>
+    <method name="insertChildBefore" returnType="XMLList|undefined">
+      <param name="child1" type="Object"/>
+      <param name="child2" type="Object"/>
+    </method>
+    <method name="localName" returnType="String"/>
+    <method name="name" returnType="Object"/>
+    <method name="namespace" returnType="*">
+      <param name="prefix" type="String"/>
+    </method>
+    <method name="namespaceDeclaration" returnType="Array"/>
+    <method name="nodeKind" returnType="String"/>
+    <method name="normalize" returnType="XML"/>
+    <method name="parent" returnType="XML"/>
+    <method name="prependChild" returnType="XML">
+      <param name="value" type="*"/>
+    </method>
+    <method name="processingInstructions" returnType="XMLList">
+      <param name="name" type="String"/>
+    </method>
+    <method name="removeNamespace" returnType="XML">
+      <param name="ns" type="Namespace"/>
+    </method>
+    <method name="replace" returnType="XML">
+      <param name="propertyName" type="*"/>
+      <param name="value" type="*"/>
+    </method>
+    <method name="setChildren" returnType="XML">
+      <param name="value" type="*"/>
+    </method>
+    <method name="setLocalName">
+      <param name="name" type="String"/>
+    </method>
+    <method name="setName">
+      <param name="name" type="String"/>
+    </method>
+    <method name="setNamespace">
+      <param name="name" type="String"/>
+    </method>
+    <method name="setSettings">
+      <param name="settings" rest="true" type="*"/>
+    </method>
+    <method name="settings" returnType="Object"/>
+    <method name="text" returnType="XMLList"/>
+    <method name="toXMLString" returnType="String"/>
+    <method name="valueOf" returnType="XML"/>
+  </class>
+
+  <class name="Namespace">
+    <property name="prefix" type="String"/>
+    <property name="uri" type="String"/>
+    <method name="__constructor__">
+      <param name="prefixValue" type="*"/>
+      <param name="urlValue" type="*"/>
+    </method>
+    <method name="valueOf" returnType="Namespace"/>
+  </class>
+
+  <class name="QName">
+    <property name="localName" type="String" attribute="readOnly"/>
+    <property name="uri" type="String" attribute="readOnly"/>
+    <method name="__constructor__">
+      <param name="uri" type="*"/>
+      <param name="localName" type="*"/>
+    </method>
+  </class>
+</Library>

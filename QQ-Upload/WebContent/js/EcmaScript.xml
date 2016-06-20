@@ -1,0 +1,461 @@
+<Library>
+  <class name="Global">
+    <method name="eval" returnType="Object">
+      <param name="x" optional="false" type="*"/>
+    </method>
+    <method name="parseInt" returnType="Number">
+      <param name="s" optional="false" type="*"/>
+      <param name="radix" type="Number"/>
+    </method>
+    <method name="parseFloat" returnType="Number">
+      <param name="x" optional="false" type="*"/>
+    </method>
+    <method name="isNaN" returnType="boolean">
+      <param name="x" optional="false" type="Number"/>
+    </method>
+    <property name="NaN" type="Number" attribute="readOnly"/>
+    <method name="isFinite" returnType="boolean">
+      <param name="x" optional="false" type="Number"/>
+    </method>
+    <method name="decodeURI" returnType="String">
+      <param name="encodedURI" optional="false" type="String"/>
+    </method>
+    <method name="decodeURIComponent" returnType="String">
+      <param name="encodedURIComponent" optional="false" type="String"/>
+    </method>
+    <property name="Infinity" type="Number"/>
+    <method name="encodeURI" returnType="String">
+      <param name="uri" optional="false" type="String"/>
+    </method>
+    <method name="encodeURIComponent" returnType="String">
+      <param name="uriComponent" optional="false" type="String"/>
+    </method>
+    <property name="undefined"/>
+  </class>
+
+  <class name="Object">
+    <method name="__constructor__">
+      <param name="value" type="*"/>
+    </method>
+    <property name="constructor" type="function" defaultValue="true"/>
+    <property name="length" type="Number" defaultValue="true"/>
+    <property name="prototype" type="Object" defaultValue="true"/>
+    <method name="toLocaleString" returnType="String"/>
+    <method name="hasOwnProperty" returnType="boolean">
+      <param name="propertyName" type="String" optional="false"/>
+    </method>
+    <method name="isPrototypeOf" returnType="boolean">
+      <param name="o" type="Object" optional="false"/>
+    </method>
+    <method name="propertyIsEnumerable" returnType="boolean">
+      <param name="propertyName" type="String" optional="false"/>
+    </method>
+    <method name="toString" returnType="String"/>
+    <method name="valueOf" returnType="*"/>
+  </class>
+
+  <class name="Array" template="T">
+    <method name="__constructor__">
+      <param name="args" rest="true" type="*"/>
+    </method>
+    <method name="concat" returnType="Array.&lt;T&gt;">
+      <param name="items" rest="true" type="T|Array.&lt;T&gt;"/>
+    </method>
+    <method name="join" returnType="String">
+      <param name="separator" type="String"/>
+    </method>
+    <method name="pop" returnType="T"/>
+    <method name="push" returnType="Number">
+      <param name="items" rest="true" type="T"/>
+    </method>
+    <method name="reverse" returnType="Array.&lt;T&gt;"/>
+    <method name="shift" returnType="T"/>
+    <method name="slice" returnType="Array.&lt;T&gt;">
+      <param name="start" type="Number"/>
+      <param name="end" type="Number"/>
+    </method>
+    <method name="sort" returnType="Array.&lt;T&gt;">
+      <param name="compareFn" type="function"/>
+    </method>
+    <method name="splice" returnType="Array.&lt;T&gt;">
+      <param name="start" type="Number"/>
+      <param name="deleteCount" type="Number"/>
+      <param name="items" rest="true" type="T"/>
+    </method>
+    <method name="unshift" returnType="Number">
+      <param name="items" rest="true" type="T"/>
+    </method>
+    <method name="valueOf" returnType="Array"/>
+  </class>
+
+  <class name="Boolean">
+    <method name="__constructor__" returnType="boolean">
+      <param name="value"/>
+    </method>
+
+    <method name="valueOf" returnType="boolean"/>
+  </class>
+
+  <class name="Date" paramPolicyMandatory="true">
+    <method name="__constructor__">
+      <param name="args" rest="true" type="*"/>
+    </method>
+    <static>
+      <method name="UTC" returnType="Long">
+        <param name="year" type="Int"/>
+        <param name="month" type="Int"/>
+        <param name="date" type="Int" optional="true"/>
+        <param name="hours" type="Int" optional="true"/>
+        <param name="minutes" type="Int" optional="true"/>
+        <param name="seconds" type="Int" optional="true"/>
+        <param name="milliseconds" type="Int" optional="true"/>
+      </method>
+      <method name="parse" returnType="Long">
+        <param name="dateString" type="String"/>
+      </method>
+
+      <method name="now" returnType="Long" since="5"/>
+    </static>
+    <method name="getDate" returnType="Int"/>
+    <method name="getDay" returnType="Int"/>
+    <method name="getMonth" returnType="Int"/>
+    <method name="getFullYear" returnType="Int"/>
+    <method name="getHours" returnType="Int"/>
+    <method name="getMilliseconds" returnType="Int"/>
+    <method name="getMinutes" returnType="Int"/>
+    <method name="getSeconds" returnType="Int"/>
+    <method name="getTime" returnType="Long"/>
+    <method name="getTimezoneOffset" returnType="Int"/>
+    <method name="getUTCDate" returnType="Int"/>
+    <method name="getUTCDay" returnType="Int"/>
+    <method name="getUTCFullYear" returnType="Int"/>
+    <method name="getUTCHours" returnType="Int"/>
+    <method name="getUTCMilliseconds" returnType="Int"/>
+    <method name="getUTCMinutes" returnType="Int"/>
+    <method name="getUTCMonth" returnType="Int"/>
+    <method name="getUTCSeconds" returnType="Int"/>
+    <method name="getYear" returnType="Int"/>
+    <method name="setDate">
+      <param name="date" type="Int"/>
+    </method>
+    <method name="setFullYear">
+      <param name="year" type="Int"/>
+      <param name="month" type="Int" optional="true"/>
+      <param name="day" type="Int" optional="true"/>
+    </method>
+    <method name="setHours">
+      <param name="hour" type="Int"/>
+      <param name="min" type="Int" optional="true"/>
+      <param name="sec" type="Int" optional="true"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setMilliseconds">
+      <param name="ms" type="Int"/>
+    </method>
+    <method name="setMinutes">
+      <param name="min" type="Int"/>
+      <param name="sec" type="Int" optional="true"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setMonth">
+      <param name="month" type="Int"/>
+      <param name="day" type="Int" optional="true"/>
+    </method>
+    <method name="setSeconds">
+      <param name="sec" type="Int"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setTime">
+      <param name="time" type="Long"/>
+    </method>
+    <method name="setUTCDate">
+      <param name="date" type="Int"/>
+    </method>
+    <method name="setUTCFullYear">
+      <param name="year" type="Int"/>
+      <param name="month" type="Int" optional="true"/>
+      <param name="day" type="Int" optional="true"/>
+    </method>
+    <method name="setUTCHours">
+      <param name="hour" type="Int"/>
+      <param name="min" type="Int" optional="true"/>
+      <param name="sec" type="Int" optional="true"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setUTCMilliseconds">
+      <param name="ms" type="Int"/>
+    </method>
+    <method name="setUTCMinutes">
+      <param name="min" type="Int"/>
+      <param name="sec" type="Int" optional="true"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setUTCMonth">
+      <param name="month" type="Int"/>
+      <param name="day" type="Int" optional="true"/>
+    </method>
+    <method name="setUTCSeconds">
+      <param name="sec" type="Int"/>
+      <param name="ms" type="Int" optional="true"/>
+    </method>
+    <method name="setYear">
+      <param name="value" type="Int"/>
+    </method>
+    <method name="toDateString" returnType="String"/>
+    <method name="toISOString" returnType="String"/>
+    <method name="toLocaleDateString" returnType="String"/>
+    <method name="toLocaleString" returnType="String"/>
+    <method name="toLocaleTimeString" returnType="String"/>
+    <method name="toTimeString" returnType="String"/>
+    <method name="toUTCString" returnType="String"/>
+
+    <method name="toJSON" returnType="String" since="5"/>
+  </class>
+
+  <class name="Arguments" extends="Array">
+    <property name="callee" type="function"/>
+    <property name="caller" type="function" attribute="readOnly" deprecated="true"/>
+  </class>
+
+  <class name="Function">
+    <property name="arguments" type="Arguments" attribute="readOnly"/>
+    <property name="arity" type="Number" attribute="readOnly"/>
+    <method name="apply" returnType="*">
+      <param name="thisArg" type="Object"/>
+      <param name="argArray" type="Array"/>
+    </method>
+    <method name="call" returnType="*">
+      <param name="thisArg" type="Object"/>
+      <param name="args" rest="true" type="*"/>
+    </method>
+  </class>
+
+  <class name="Math" paramPolicyMandatory="true">
+    <static>
+      <property name="E" type="double" attribute="readOnly"/>
+      <property name="LN10" type="double" attribute="readOnly"/>
+      <property name="LN2" type="double" attribute="readOnly"/>
+      <property name="LOG10E" type="double" attribute="readOnly"/>
+      <property name="LOG2E" type="double" attribute="readOnly"/>
+      <property name="PI" type="double" attribute="readOnly"/>
+      <property name="SQRT1_2" type="double" attribute="readOnly"/>
+      <property name="SQRT2" type="double" attribute="readOnly"/>
+
+      <method name="abs" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="acos" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="asin" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="atan" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="atan2" returnType="double">
+        <param name="x" type="double"/>
+        <param name="y" type="double"/>
+      </method>
+      <method name="ceil" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="cos" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="exp" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="floor" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="log" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="max" returnType="double">
+        <param name="x" rest="true" type="double"/>
+      </method>
+      <method name="min" returnType="double">
+        <param name="x" rest="true" type="double"/>
+      </method>
+      <method name="pow" returnType="double">
+        <param name="x" type="double"/>
+        <param name="y" type="double"/>
+      </method>
+      <method name="random" returnType="double"/>
+      <method name="round" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="sin" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="sqrt" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+      <method name="tan" returnType="double">
+        <param name="x" type="double"/>
+      </method>
+    </static>
+  </class>
+
+  <class name="Number">
+    <static>
+      <property name="MAX_VALUE" type="Number" attribute="readOnly"/>
+      <property name="MIN_VALUE" type="Number" attribute="readOnly"/>
+      <property name="NaN" type="Number" attribute="readOnly"/>
+      <property name="NEGATIVE_INFINITY" type="Number" attribute="readOnly"/>
+      <property name="POSITIVE_INFINITY" type="Number" attribute="readOnly"/>
+    </static>
+
+    <method name="__constructor__" returnType="number">
+      <param name="value"/>
+    </method>
+
+    <method name="toExponential" returnType="String">
+      <param name="fractionalDigits" type="Number"/>
+    </method>
+    <method name="toFixed" returnType="String">
+      <param name="fractionalDigits" type="Number"/>
+    </method>
+    <method name="toPrecision" returnType="String">
+      <param name="precision" type="Number"/>
+    </method>
+    <method name="toString" returnType="String">
+      <param name="radix" type="Number"/>
+    </method>
+    <method name="valueOf" returnType="Number"/>
+  </class>
+
+  <class name="RegExp">
+    <static>
+      <property name="leftContext" type="String" attribute="readOnly"/>
+      <property name="input" type="String" attribute="readOnly"/>
+      <property name="lastParen" type="String" attribute="readOnly"/>
+      <property name="lastMatch" type="String" attribute="readOnly"/>
+      <property name="rightContext" type="String" attribute="readOnly"/>
+      <property name="$1" type="String" attribute="readOnly"/>
+      <property name="$2" type="String" attribute="readOnly"/>
+      <property name="$3" type="String" attribute="readOnly"/>
+      <property name="$4" type="String" attribute="readOnly"/>
+      <property name="$5" type="String" attribute="readOnly"/>
+    </static>
+
+    <method name="__constructor__">
+      <param name="pattern" type="String"/>
+      <param name="options" type="String"/>
+    </method>
+
+    <property name="global" type="boolean" attribute="readOnly"/>
+    <property name="ignoreCase" type="boolean" attribute="readOnly"/>
+    <property name="lastIndex" type="Number"/>
+    <property name="multiline" type="boolean"/>
+    <property name="source" type="String"/>
+    <method name="exec" returnType="Array|{index:number, input:string}">
+      <param name="String" type="String"/>
+    </method>
+    <method name="test" returnType="boolean">
+      <param name="String" type="String"/>
+    </method>
+  </class>
+
+  <class name="String">
+    <static>
+      <method name="fromCharCode" returnType="String">
+        <param name="chars" rest="true" type="Number"/>
+      </method>
+    </static>
+
+    <method name="__constructor__" returnType="string">
+      <param name="value"/>
+    </method>
+
+    <method name="anchor" returnType="String">
+      <param name="nameAttribute" type="String"/>
+    </method>
+    <method name="big" returnType="String"/>
+    <method name="blink" returnType="String"/>
+    <method name="bold" returnType="String"/>
+    <method name="charAt" returnType="String">
+      <param name="pos" type="Number" optional="false"/>
+    </method>
+    <method name="charCodeAt" returnType="Number">
+      <param name="index" optional="false"/>
+    </method>
+    <method name="concat" returnType="String">
+      <param name="strings" type="String" rest="true"/>
+    </method>
+    <method name="fixed" returnType="String"/>
+    <method name="fontcolor" returnType="String">
+      <param name="color" type="String" optional="false"/>
+    </method>
+    <method name="fontsize" returnType="String">
+      <param name="size" type="Number" optional="false"/>
+    </method>
+    <method name="indexOf" returnType="Number">
+      <param name="searchString" type="String" optional="false"/>
+      <param name="position" type="Number"/>
+    </method>
+    <method name="italics" returnType="String"/>
+    <method name="lastIndexOf" returnType="Number">
+      <param name="searchString" type="String" optional="false"/>
+      <param name="position" type="Number"/>
+    </method>
+    <method name="link" returnType="String">
+      <param name="href" type="String" optional="false"/>
+    </method>
+    <method name="localeCompare" returnType="boolean">
+      <param name="that" type="String" optional="false"/>
+    </method>
+    <method name="match" returnType="Array|{index:number, input:string}">
+      <param name="regexp" type="RegExp" optional="false"/>
+    </method>
+    <method name="replace" returnType="String">
+      <param name="searchValue" type="RegExp|string" optional="false"/>
+      <param name="replaceValue" type="string|function" optional="false"/>
+    </method>
+    <method name="search" returnType="Number">
+      <param name="regexp" type="*" optional="false"/>
+    </method>
+    <method name="slice" returnType="String">
+      <param name="start" type="Number" optional="false"/>
+      <param name="end" type="Number"/>
+    </method>
+    <method name="small" returnType="String"/>
+    <method name="split" returnType="Array">
+      <param name="separator" type="*" optional="false"/>
+      <param name="limit" type="Number"/>
+    </method>
+    <method name="strike" returnType="String"/>
+    <method name="sub" returnType="String"/>
+    <method name="substr" returnType="String">
+      <param name="start" type="Number" optional="false"/>
+      <param name="length" type="Number"/>
+    </method>
+    <method name="substring" returnType="String">
+      <param name="start" type="Number" optional="false"/>
+      <param name="end" type="Number"/>
+    </method>
+    <method name="sup" returnType="String"/>
+    <method name="toLowerCase" returnType="String"/>
+    <method name="toLocaleLowerCase" returnType="String"/>
+    <method name="toLocaleUpperCase" returnType="String"/>
+    <method name="toUpperCase" returnType="String"/>
+    <method name="valueOf" returnType="String"/>
+  </class>
+
+  <class name="Error">
+    <method name="__constructor__">
+      <param name="msg" type="*"/>
+      <param name="id" type="*"/>
+    </method>
+    <property name="name" type="String"/>
+    <property name="message" type="String"/>
+  </class>
+
+  <class name="EvalError" extends="Error"/>
+  <class name="RangeError" extends="Error"/>
+  <class name="ReferenceError" extends="Error"/>
+  <class name="SyntaxError" extends="Error"/>
+  <class name="TypeError" extends="Error"/>
+  <class name="URIError" extends="Error"/>
+</Library>

@@ -1,0 +1,66 @@
+<Library>
+  <class name="Global">
+    <method name="ActiveXObject" returnType="XMLHttpRequest">
+      <param name="sName" type="string"/>
+      <param name="location" type="string" optional="true"/>
+    </method>
+  </class>
+
+  <class name="XMLHttpRequest" paramPolicyMandatory="true">
+    <method name="__constructor__">
+      <param name="options" type="Object" rest="true" optional="true"/>
+    </method>
+    <static>
+      <property name="UNSENT" value="0" type="int" readOnly="true"/>
+      <property name="OPENED" value="1" type="int" readOnly="true"/>
+      <property name="HEADERS_RECEIVED" value="2" type="int" readOnly="true"/>
+      <property name="LOADING" type="int" value="3" readOnly="true"/>
+      <property name="DONE" type="int" value="4" readOnly="true"/>
+    </static>
+    <method name="abort"/>
+    <method name="getAllResponseHeaders" returnType="String?"/>
+    <method name="getResponseHeader" returnType="String?">
+      <param name="headerName" optional="false" type="String"/>
+    </method>
+    <method name="overrideMimeType" since="5">
+      <param name="mimeType" type="String"/>
+    </method>
+
+    <method name="open">
+      <param name="method" type="String"/>
+      <param name="url" type="String"/>
+      <param name="async" type="Boolean" optional="true"/>
+      <param name="user" type="String" optional="true"/>
+      <param name="password" type="String" optional="true"/>
+    </method>
+
+    <method name="send">
+      <param name="data" type="String|ArrayBuffer|Blob|Document|FormData" optional="true"/>
+    </method>
+
+    <method name="setRequestHeader">
+      <param name="header" type="String"/>
+      <param name="value" type="String"/>
+    </method>
+
+    <property name="onreadystatechange" type="Function?" writeOnly="true"/>
+
+    <property name="readyState" type="int"/>
+    <property name="responseText" type="String?" readOnly="true"/>
+    <property name="statusText" type="String" readOnly="true"/>
+    <property name="status" type="int" readOnly="true"/>
+    <property name="responseXML" type="Document"/>
+
+    <property name="responseType" type="String" since="5"/>
+    <property name="response" type="Object?" since="5"/>
+    <property name="withCredentials" type="Boolean" since="5"/>
+    <property name="upload" type="XMLHttpRequestEventTarget" readOnly="true" since="5"/>
+  </class>
+  <class name="XMLHttpRequestException">
+    <static>
+      <property name="NETWORK_ERR" value="101" type="int" readOnly="true"/>
+      <property name="ABORT_ERR" value="102" type="int" readOnly="true"/>
+    </static>
+    <property name="code" type="int" readOnly="true"/>
+  </class>
+</Library>

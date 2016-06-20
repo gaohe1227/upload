@@ -1,0 +1,93 @@
+<!--
+   Standard: ECMAScript binding for the Level 3 Document Object Model
+                                XPath definitions
+                                    ver. 1.1
+-->
+
+<Library>
+    <doc url="http://www.w3.org/TR/2004/NOTE-DOM-Level-3-XPath-20040226/xpath.html"/>
+
+    <class name="XPathException" url="#XPathException" browser="Gecko">
+        <!-- properties -->
+        <property name="code" type="Number"/>
+
+        <!-- methods -->
+    </class>
+
+    <class name="XPathEvaluator" url="#XPathEvaluator" browser="Gecko">
+        <!-- properties -->
+
+        <!-- methods -->
+        <method name="createExpression" returnType="XPathExpression" throws="XPathException, DOMException">
+            <param name="expression" optional="false" type="String"/>
+            <param name="resolver" optional="false" type="XPathNSResolver"/>
+        </method>
+        <method name="createNSResolver" returnType="XPathNSResolver">
+            <param name="nodeResolver" optional="false" type="Node"/>
+        </method>
+        <method name="evaluate" returnType="Object" throws="XPathException, DOMException">
+            <param name="expression" optional="false" type="String"/>
+            <param name="contextNode" optional="false" type="Node"/>
+            <param name="resolver" optional="false" type="XPathNSResolver"/>
+            <param name="type" optional="false" type="Number"/>
+            <param name="result" optional="false" type="Object"/>
+        </method>
+    </class>
+
+    <class name="XPathExpression" url="#XPathExpression" browser="Gecko">
+        <!-- properties -->
+
+        <!-- methods -->
+        <method name="evaluate" returnType="Object" throws="XPathException, DOMException">
+            <param name="contextNode" optional="false" type="Node"/>
+            <param name="type" optional="false" type="Number"/>
+            <param name="result" optional="false" type="Object"/>
+        </method>
+    </class>
+
+    <class name="XPathNSResolver" url="#XPathNSResolver" browser="Gecko">
+        <!-- properties -->
+
+        <!-- methods -->
+        <method name="lookupNamespaceURI" returnType="String">
+            <param name="prefix" optional="false" type="String"/>
+        </method>
+    </class>
+
+    <class name="XPathResult" url="#XPathResult" browser="Gecko">
+      <static>
+        <property name="ORDERED_NODE_SNAPSHOT_TYPE" type="Number" value="7"/>
+        <property name="ORDERED_NODE_ITERATOR_TYPE" type="Number" value="5"/>
+        <property name="ANY_TYPE" type="Number" value="0"/>
+        <property name="BOOLEAN_TYPE" type="Number" value="3"/>
+        <property name="NUMBER_TYPE" type="Number" value="1"/>
+        <property name="STRING_TYPE" type="Number" value="2"/>
+        <property name="FIRST_ORDERED_NODE_TYPE" type="Number" value="9"/>
+        <property name="ANY_UNORDERED_NODE_TYPE" type="Number" value="8"/>
+        <property name="UNORDERED_NODE_ITERATOR_TYPE" type="Number" value="4"/>
+        <property name="UNORDERED_NODE_SNAPSHOT_TYPE" type="Number" value="6"/>
+      </static>
+
+        <!-- properties -->
+        <property name="resultType" optional="false" type="Number"/>
+        <property name="numberValue" optional="false" type="Number" throws="XPathException"/>
+        <property name="stringValue" optional="false" type="String" throws="XPathException"/>
+        <property name="booleanValue" optional="false" type="Boolean" throws="XPathException"/>
+        <property name="singleNodeValue" optional="false" type="Node" throws="XPathException"/>
+        <property name="invalidIteratorState" optional="false" type="Boolean"/>
+        <property name="snapshotLength" optional="false" type="Number" throws="XPathException"/>
+
+        <!-- methods -->
+        <method name="iterateNext" returnType="Node"/>
+        <method name="snapshotItem" returnType="Node" throws="XPathException, DOMException">
+            <param name="index" optional="false" type="Number"/>
+        </method>
+    </class>
+
+    <class name="XPathNamespace" url="#XPathNamespace" extends="Node" browser="Gecko">
+        <!-- properties -->
+        <property name="ownerElement" attribute="ReadOnly" type="Element"/>
+
+        <!-- methods -->
+    </class>
+</Library>
